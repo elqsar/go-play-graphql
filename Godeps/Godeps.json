@@ -1,0 +1,106 @@
+{
+	"ImportPath": "go-play-graphql",
+	"GoVersion": "go1.8",
+	"GodepVersion": "v79",
+	"Deps": [
+		{
+			"ImportPath": "github.com/graphql-go/graphql",
+			"Comment": "v0.5.0-72-g170c5b5",
+			"Rev": "170c5b51a4a162ef58c1317e11f3e0a8cab70957"
+		},
+		{
+			"ImportPath": "github.com/graphql-go/graphql/gqlerrors",
+			"Comment": "v0.5.0-72-g170c5b5",
+			"Rev": "170c5b51a4a162ef58c1317e11f3e0a8cab70957"
+		},
+		{
+			"ImportPath": "github.com/graphql-go/graphql/language/ast",
+			"Comment": "v0.5.0-72-g170c5b5",
+			"Rev": "170c5b51a4a162ef58c1317e11f3e0a8cab70957"
+		},
+		{
+			"ImportPath": "github.com/graphql-go/graphql/language/kinds",
+			"Comment": "v0.5.0-72-g170c5b5",
+			"Rev": "170c5b51a4a162ef58c1317e11f3e0a8cab70957"
+		},
+		{
+			"ImportPath": "github.com/graphql-go/graphql/language/lexer",
+			"Comment": "v0.5.0-72-g170c5b5",
+			"Rev": "170c5b51a4a162ef58c1317e11f3e0a8cab70957"
+		},
+		{
+			"ImportPath": "github.com/graphql-go/graphql/language/location",
+			"Comment": "v0.5.0-72-g170c5b5",
+			"Rev": "170c5b51a4a162ef58c1317e11f3e0a8cab70957"
+		},
+		{
+			"ImportPath": "github.com/graphql-go/graphql/language/parser",
+			"Comment": "v0.5.0-72-g170c5b5",
+			"Rev": "170c5b51a4a162ef58c1317e11f3e0a8cab70957"
+		},
+		{
+			"ImportPath": "github.com/graphql-go/graphql/language/printer",
+			"Comment": "v0.5.0-72-g170c5b5",
+			"Rev": "170c5b51a4a162ef58c1317e11f3e0a8cab70957"
+		},
+		{
+			"ImportPath": "github.com/graphql-go/graphql/language/source",
+			"Comment": "v0.5.0-72-g170c5b5",
+			"Rev": "170c5b51a4a162ef58c1317e11f3e0a8cab70957"
+		},
+		{
+			"ImportPath": "github.com/graphql-go/graphql/language/typeInfo",
+			"Comment": "v0.5.0-72-g170c5b5",
+			"Rev": "170c5b51a4a162ef58c1317e11f3e0a8cab70957"
+		},
+		{
+			"ImportPath": "github.com/graphql-go/graphql/language/visitor",
+			"Comment": "v0.5.0-72-g170c5b5",
+			"Rev": "170c5b51a4a162ef58c1317e11f3e0a8cab70957"
+		},
+		{
+			"ImportPath": "github.com/pressly/chi",
+			"Comment": "v2.1.0-1-g157587f",
+			"Rev": "157587f33c258f3590967dfc7be2e75c0aa1cdf3"
+		},
+		{
+			"ImportPath": "github.com/pressly/chi/render",
+			"Comment": "v2.1.0-1-g157587f",
+			"Rev": "157587f33c258f3590967dfc7be2e75c0aa1cdf3"
+		},
+		{
+			"ImportPath": "golang.org/x/net/context",
+			"Rev": "a6577fac2d73be281a500b310739095313165611"
+		},
+		{
+			"ImportPath": "gopkg.in/redis.v5",
+			"Comment": "v5.2.9",
+			"Rev": "a16aeec10ff407b1e7be6dd35797ccf5426ef0f0"
+		},
+		{
+			"ImportPath": "gopkg.in/redis.v5/internal",
+			"Comment": "v5.2.9",
+			"Rev": "a16aeec10ff407b1e7be6dd35797ccf5426ef0f0"
+		},
+		{
+			"ImportPath": "gopkg.in/redis.v5/internal/consistenthash",
+			"Comment": "v5.2.9",
+			"Rev": "a16aeec10ff407b1e7be6dd35797ccf5426ef0f0"
+		},
+		{
+			"ImportPath": "gopkg.in/redis.v5/internal/hashtag",
+			"Comment": "v5.2.9",
+			"Rev": "a16aeec10ff407b1e7be6dd35797ccf5426ef0f0"
+		},
+		{
+			"ImportPath": "gopkg.in/redis.v5/internal/pool",
+			"Comment": "v5.2.9",
+			"Rev": "a16aeec10ff407b1e7be6dd35797ccf5426ef0f0"
+		},
+		{
+			"ImportPath": "gopkg.in/redis.v5/internal/proto",
+			"Comment": "v5.2.9",
+			"Rev": "a16aeec10ff407b1e7be6dd35797ccf5426ef0f0"
+		}
+	]
+}
