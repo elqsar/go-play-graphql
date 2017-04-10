@@ -1,5 +1,9 @@
 ### Playing with Graphql and Go
 
+#### Notes:
+
+* Clone in $GOPATH/src
+
 #### Endpoints:
 * Get one `curl -g 'http://localhost:3000/redirects?query={redirect(from:"/oldUrl"){from,to}}'`
 * Get all `curl -g 'http://localhost:3000/redirects?query={redirects(offset:0,limit:30){from,to}}'`
