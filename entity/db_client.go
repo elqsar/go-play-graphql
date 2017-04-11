@@ -18,6 +18,12 @@ func NewDB() *DB {
 	return &DB{client}
 }
 
+
+func(db *DB) HealthCheck() error {
+	_, err :=  db.client.Ping().Result()
+	return err
+}
+
 func(db *DB) Save(redirect *Redirect) (res string, err error) {
 	res, err = db.client.Set(createRedirectKey(redirect.From), redirect.To, 0).Result()
 	return
