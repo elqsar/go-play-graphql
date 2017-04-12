@@ -1,17 +1,18 @@
 package processor
 
 import (
-	"github.com/graphql-go/graphql"
 	"errors"
-	"go-play-graphql/entity"
 	"fmt"
+	"go-play-graphql/entity"
+
+	"github.com/graphql-go/graphql"
 )
 
 type RedirectProcessor struct {
 	Storage *entity.DB
 }
 
-func(rp *RedirectProcessor) ExecuteQuery(query string) *graphql.Result {
+func (rp *RedirectProcessor) ExecuteQuery(query string) *graphql.Result {
 	schema, _ := rp.schema()
 	result := graphql.Do(graphql.Params{
 		Schema:        schema,
@@ -23,10 +24,10 @@ func(rp *RedirectProcessor) ExecuteQuery(query string) *graphql.Result {
 	return result
 }
 
-func(rp *RedirectProcessor) schema() (graphql.Schema, error) {
+func (rp *RedirectProcessor) schema() (graphql.Schema, error) {
 	return graphql.NewSchema(
 		graphql.SchemaConfig{
-			Query: rp.queryType(),
+			Query:    rp.queryType(),
 			Mutation: rp.mutationType(),
 		},
 	)
@@ -47,7 +48,7 @@ func redirectType() *graphql.Object {
 		})
 }
 
-func(rp *RedirectProcessor) queryType() *graphql.Object {
+func (rp *RedirectProcessor) queryType() *graphql.Object {
 	return graphql.NewObject(
 		graphql.ObjectConfig{
 			Name: "Query",
@@ -77,7 +78,7 @@ func(rp *RedirectProcessor) queryType() *graphql.Object {
 		})
 }
 
-func(rp *RedirectProcessor) mutationType() *graphql.Object {
+func (rp *RedirectProcessor) mutationType() *graphql.Object {
 	return graphql.NewObject(graphql.ObjectConfig{
 		Name: "Mutation",
 		Fields: graphql.Fields{
@@ -106,10 +107,10 @@ func(rp *RedirectProcessor) mutationType() *graphql.Object {
 	})
 }
 
-func(rp *RedirectProcessor) get(p graphql.ResolveParams) (interface{}, error) {
+func (rp *RedirectProcessor) get(p graphql.ResolveParams) (interface{}, error) {
 	from, ok := p.Args["from"].(string)
 	if !ok {
-		return nil, errors.New("Not found")
+		return nil, errors.New("Unable to parse from")
 	}
 	res, err := rp.Storage.Get(from)
 	if err != nil {
@@ -118,14 +119,14 @@ func(rp *RedirectProcessor) get(p graphql.ResolveParams) (interface{}, error) {
 	return res, nil
 }
 
-func(rp *RedirectProcessor) getAll(p graphql.ResolveParams) (interface{}, error) {
+func (rp *RedirectProcessor) getAll(p graphql.ResolveParams) (interface{}, error) {
 	offset, ok := p.Args["offset"].(int)
 	if !ok {
-		return nil, errors.New("Not found")
+		return nil, errors.New("Unable to parse offset")
 	}
 	limit, ok := p.Args["limit"].(int)
 	if !ok {
-		return nil, errors.New("Not found")
+		return nil, errors.New("Unable to parse limit")
 	}
 	result, err := rp.Storage.GetAll(offset, limit)
 	if err != nil {
@@ -134,13 +135,13 @@ func(rp *RedirectProcessor) getAll(p graphql.ResolveParams) (interface{}, error)
 	return result, nil
 }
 
-func(rp *RedirectProcessor) createRedirect(params graphql.ResolveParams) (interface{}, error) {
+func (rp *RedirectProcessor) createRedirect(params graphql.ResolveParams) (interface{}, error) {
 	from, _ := params.Args["from"].(string)
 	to, _ := params.Args["to"].(string)
 	return rp.Storage.Save(&entity.Redirect{From: from, To: to})
 }
 
-func(rp *RedirectProcessor) deleteRedirect(params graphql.ResolveParams) (interface{}, error) {
+func (rp *RedirectProcessor) deleteRedirect(params graphql.ResolveParams) (interface{}, error) {
 	from, _ := params.Args["from"].(string)
 	err := rp.Storage.Delete(from)
 	if err != nil {
@@ -148,5 +149,3 @@ func(rp *RedirectProcessor) deleteRedirect(params graphql.ResolveParams) (interf
 	}
 	return nil, nil
 }
-
-

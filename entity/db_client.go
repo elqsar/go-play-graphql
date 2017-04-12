@@ -1,8 +1,9 @@
 package entity
 
 import (
-	"gopkg.in/redis.v5"
 	"fmt"
+
+	"gopkg.in/redis.v5"
 )
 
 type DB struct {
@@ -18,18 +19,17 @@ func NewDB() *DB {
 	return &DB{client}
 }
 
-
-func(db *DB) HealthCheck() error {
-	_, err :=  db.client.Ping().Result()
+func (db *DB) HealthCheck() error {
+	_, err := db.client.Ping().Result()
 	return err
 }
 
-func(db *DB) Save(redirect *Redirect) (res string, err error) {
+func (db *DB) Save(redirect *Redirect) (res string, err error) {
 	res, err = db.client.Set(createRedirectKey(redirect.From), redirect.To, 0).Result()
 	return
 }
 
-func(db *DB) Get(key string) (*Redirect, error) {
+func (db *DB) Get(key string) (*Redirect, error) {
 	res, err := db.client.Get(key).Result()
 	if err != nil {
 		return nil, err
@@ -37,7 +37,7 @@ func(db *DB) Get(key string) (*Redirect, error) {
 	return &Redirect{key, res}, nil
 }
 
-func(db *DB) GetAll(offset, limit int) (res []*Redirect, err error) {
+func (db *DB) GetAll(offset, limit int) (res []*Redirect, err error) {
 	if limit > 100 || limit < 0 {
 		limit = 100
 	}
@@ -54,7 +54,7 @@ func(db *DB) GetAll(offset, limit int) (res []*Redirect, err error) {
 	return result, nil
 }
 
-func(db *DB) Delete(key string) error {
+func (db *DB) Delete(key string) error {
 	_, err := db.client.Del(createRedirectKey(key)).Result()
 	return err
 }
